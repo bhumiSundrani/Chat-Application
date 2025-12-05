@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💬 Real-Time Chat Application
 
-## Getting Started
+A modern, full-featured real-time chat application built with Next.js, featuring instant messaging, file sharing, user management, and live typing indicators.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Core Chat Features
+- **Real-Time Messaging**: Instant message delivery using WebSocket (Socket.io)
+- **File Sharing**: Upload and share images, videos, audio files, via Cloudinary
+- **Online Status**: View which users are currently online
+- **Message History**: Paginated message loading with infinite scroll
+- **Conversation Management**: Automatic conversation creation between users
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### User Management
+- **User Authentication**: Secure login/signup with NextAuth.js
+- **Google OAuth**: Sign in with Google account
+- **User CRUD Operations**: Create, read, update, and delete users
+- **Profile Management**: Edit user details (name, email, mobile, password)
+- **User List**: Browse all available users in the sidebar
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### UI/UX Features
+- **Responsive Design**: Mobile-first design that works on all devices
+- **Modern UI**: Built with Tailwind CSS and shadcn/ui components
+- **Toast Notifications**: User-friendly success/error messages
+- **Loading States**: Smooth loading indicators
+- **Auto-scroll**: Automatic scroll to latest messages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
 
-## Learn More
+### Frontend
+- **Next.js 16** - React framework with App Router
+- **React 19** - UI library
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - High-quality component library
+- **React Hook Form** - Form management
+- **Zod** - Schema validation
+- **Socket.io Client** - Real-time communication
+- **Sonner** - Toast notifications
 
-To learn more about Next.js, take a look at the following resources:
+### Backend
+- **Next.js API Routes** - Serverless API endpoints
+- **NextAuth.js** - Authentication
+- **MongoDB** - Database (via Mongoose)
+- **Socket.io** - WebSocket server for real-time features
+- **bcryptjs** - Password hashing
+- **Cloudinary** - File storage and CDN
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Development Tools
+- **ESLint** - Code linting
+- **TypeScript** - Static type checking
