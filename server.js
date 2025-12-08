@@ -1,12 +1,14 @@
 const { Server } = require("socket.io");
 const http = require("http");
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 const server = http.createServer();
+
 const io = new Server(server, {
   cors: {
-    origin: process.env.NEXTAUTH_URL,
+    origin: process.env.NEXTAUTH_URL || "*",
+    methods: ["GET", "POST"],
     credentials: true,
   },
 });
@@ -25,17 +27,14 @@ io.on("connection", (socket) => {
     io.emit("online_users", Array.from(onlineUsers.keys()));
   });
 
-  // ✅ FIXED TYPING
- socket.on("typing", ({ to, from, conversationId }) => {
-  socket.to(conversationId).emit("typing", { from });
-});
+  socket.on("typing", ({ to, from, conversationId }) => {
+    socket.to(conversationId).emit("typing", { from });
+  });
 
-socket.on("stop_typing", ({ to, from, conversationId }) => {
-  socket.to(conversationId).emit("stop_typing", { from });
-});
+  socket.on("stop_typing", ({ to, from, conversationId }) => {
+    socket.to(conversationId).emit("stop_typing", { from });
+  });
 
-
-  // messages
   socket.on("send_message", ({ roomId, message }) => {
     io.to(roomId).emit("receive_message", message);
   });
