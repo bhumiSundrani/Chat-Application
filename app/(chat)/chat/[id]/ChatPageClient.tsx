@@ -28,9 +28,6 @@ export default function ChatPageClient({ otherId }: { otherId: string }) {
   const [skip, setSkip] = useState(0);
   const [hasMore, setHasMore] = useState(true);
 
-  // ---------------------------
-  // FETCH OTHER USER DATA
-  // ---------------------------
   useEffect(() => {
     if (!otherId) return;
 
@@ -49,9 +46,6 @@ export default function ChatPageClient({ otherId }: { otherId: string }) {
     fetchOtherUser();
   }, [otherId]);
 
-  // ---------------------------
-  // GET OR CREATE CONVERSATION
-  // ---------------------------
   async function getConversation(user1: string, user2: string) {
     const res = await fetch("/api/conversations", {
       method: "POST",
@@ -62,9 +56,6 @@ export default function ChatPageClient({ otherId }: { otherId: string }) {
     return data.conversationId;
   }
 
-  // ---------------------------
-  // LOAD MESSAGES PAGINATED
-  // ---------------------------
 async function loadMessages(convId: string, skipCount = 0) {
   const res = await fetch(
     `/api/messages/${convId}?limit=20&skip=${skipCount}`
